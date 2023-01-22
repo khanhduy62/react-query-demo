@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 
 const fetchSuperHeroes = (id) =>
@@ -7,7 +7,7 @@ const fetchSuperHeroes = (id) =>
 
 const RQSuperHeroesPage = () => {
   const [id, setId] = useState('');
-  const { isLoading, data, error, isError, isFetching } = useQuery(
+  const { isLoading, data, error, isError, isFetching, refetch } = useQuery(
     ['super-heroes', id],
     () => fetchSuperHeroes(id),
     { 
@@ -17,7 +17,7 @@ const RQSuperHeroesPage = () => {
           return data.data.map(el => el.name)
         }
         return data?.data?.name || null;
-      }
+      },
     }
   );
 

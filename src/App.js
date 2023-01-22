@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Routes, Route, Outlet, Link } from 'react-router-dom';
 import Home from './components/Home';
+import { InfiniteQueriesPage } from './components/InfiniteQueriesPage';
 import RQSuperHeroesPage from './components/RQSuperHerosPage';
 import SuperHeroesPage from './components/SuperHeroesPage';
 
@@ -34,6 +35,10 @@ export default function App() {
             path='rq-super-heros'
             element={<RQSuperHeroesPage />}
           />
+          <Route
+            path='infinite-queries'
+            element={<InfiniteQueriesPage />}
+          />
 
           <Route
             path='*'
@@ -60,6 +65,9 @@ function Layout() {
           </li>
           <li>
             <Link to='/rq-super-heros'>RQ SuperHeroes Page</Link>
+          </li>
+          <li>
+            <Link to='/infinite-queries'>InfiniteQueriesPage</Link>
           </li>
           <li>
             <Link to='/nothing-here'>Nothing Here</Link>
